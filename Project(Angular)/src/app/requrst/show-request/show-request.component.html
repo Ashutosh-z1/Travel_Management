@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="search-bar">
+        <input type="text" [(ngModel)]="searchText" placeholder="Search by User First Name" />
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <!-- <th>Request ID</th> -->
+                <!-- <th>id</th> -->
+                <th>User's First Name</th>
+                <th>Project Name</th>
+                <th style="background-color: #f2f2f2;
+                color: #d82828;font-weight: bold;
+">Status</th>
+                <th>Manager's First Name</th>
+                <th>Reason for Traveling</th>
+                <th>Type of Booking</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor="let request of pagedRequests">
+                <!-- <td>{{ request.Id }}</td> -->
+                <!-- <td>{{ request.requestID}}</td> -->
+                <td>{{ request.userFirstName }}</td>
+                <td>{{ request.projectName }}</td>
+                <td style="color: #ff9800; ">{{ request.statusValue }}</td>
+                <td>{{ request.managerFirstName }}</td>
+                <td>{{ request.reasonForTraveling }}</td>
+                <td>{{ request.bookingType }}</td>
+                <td><button type="button"  class="btn btn-primary">Approve</button>  </td>
+                <td><button type="button"  (click)="openPopup()" class="btn btn-danger">Reject</button>  </td>
+                <!-- <td>
+                    <button (click)="acceptRequest(request)">Accept</button>
+                    <button (click)="rejectRequest(request)">Reject</button>
+                    <button (click)="commentRequest(request)">Comment</button> 
+                </td> -->
+                <!-- uncomment the code define the methods, acceptRequest -> set Status = approved,
+                commentRequest -> CRUD on comments Table -->
+            </tr>
+        </tbody>
+    </table>
+    
+
+
+  <div *ngIf="Value;then pop; else nopop"></div>
+  <ng-template #pop>
+
+    <body>
+        <div id="popup" class="popup-overlay">
+            <div class="popup-content">
+                <form #regForm1="ngForm" (ngSubmit)="createComment1(regForm1)">
+                <!-- <textarea rows="4" cols="50" placeholder="Enter your message" type="text" name="commentName" ngModel required> </textarea>
+                <br> -->
+                
+        <div>
+            <textarea rows="4" cols="50" placeholder="Enter your message" type="text" name="commentName" ngModel required> </textarea>
+            <!-- <label for="commentName"> Enter Comment </label> -->
+
+            <!-- <input type="text" name="commentName" ngModel required> -->
+
+           
+
+        </div>
+
+                <button id="Submit" type="submit" (click)="closePopup()">Submit</button>
+              <!-- <button id="Close"(click)="closePopup()">Close</button> -->
+            </form>
+
+            </div>
+          </div>
+        
+         
+        </body>
+  </ng-template>
+  <ng-template #nopop>
+
+  </ng-template>
+ 

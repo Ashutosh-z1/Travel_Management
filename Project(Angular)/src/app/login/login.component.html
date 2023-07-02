@@ -1,0 +1,140 @@
+<!-- <form #regForm="ngForm" (ngSubmit)="Login(regForm)">
+    <div>
+        <label for="txtName"> Email :</label>
+        <input type="text" name="txtName" ngModel  
+        required maxlength="20" minlength="5" #name="ngModel"/>
+        <div *ngIf="name.touched && name.invalid">
+            <div *ngIf="name.errors?.['required']">
+                Name is must
+            </div>
+            <div *ngIf="name.errors?.['maxlength']">
+                Max 20 
+            </div>
+            <div *ngIf="name.errors?.['minlength']">
+              Min 5 char
+            </div>
+        </div> <br>
+        <label for="txtName"> Password : </label>
+        <input type="text"  name="passname" ngModel  
+        required maxlength="20" minlength="5" #name="ngModel"/>
+        <div *ngIf="name.touched && name.invalid">
+            <div *ngIf="name.errors?.['required']">
+                Name is must
+            </div>
+            <div *ngIf="name.errors?.['maxlength']">
+                Max 20 
+            </div>
+            <div *ngIf="name.errors?.['minlength']">
+              Min 5 char
+            </div>
+    </div>
+    </div>
+
+    <button type="submit" [disabled]='regForm.invalid' (click)="Login(regForm)" class="btn btn-primary"> Login </button>
+</form> -->
+
+
+  <!-- <router-outlet></router-outlet>  -->
+<section class="vh-100">
+  
+  <div class="container py-5 h-100">
+    <h1 class="heading">LoginPage</h1>
+    <div *ngIf="unsuccessMessage" class="success-message">
+      {{unsuccessMessage}}
+    </div>
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://media.istockphoto.com/id/1281150061/vector/register-account-submit-access-login-password-username-internet-online-website-concept.jpg?s=612x612&w=0&k=20&c=9HWSuA9IaU4o-CK6fALBS5eaO1ubnsM08EOYwgbwGBo="
+          class="img-fluid" alt="Phone image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <form  #regForm="ngForm" (ngSubmit)="Login(regForm)">
+          <!-- Email input -->
+
+         
+          
+          <div class="form-outline mb-4">
+            <input type="text" name="txtName" class="form-control form-control-lg"  ngModel  
+            required maxlength="20" minlength="5" #name="ngModel" />
+            <label class="form-label" for="txtName">Email address</label>
+            <div *ngIf="name.touched && name.invalid">
+              <div *ngIf="name.errors?.['required']" >
+                 <span > Name is must </span>
+              </div>
+              <div *ngIf="name.errors?.['maxlength']">
+                  Max 20 
+              </div>
+              <div *ngIf="name.errors?.['minlength']">
+                Min 5 char
+              </div>
+          </div>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" name="passname" class="form-control form-control-lg"  name="passname" ngModel  
+            required maxlength="20" minlength="5" #name="ngModel"/> 
+            <label class="form-label" for="txtName">Password</label>
+            
+            <div *ngIf="name.touched && name.invalid">
+              <div *ngIf="name.errors?.['required']">
+                 <p>Please !! Enter password</p> 
+              </div>
+              <div *ngIf="name.errors?.['maxlength']">
+                  Max 20 
+              </div>
+              <div *ngIf="name.errors?.['minlength']">
+                Min 5 char
+              </div>
+      </div>
+            
+          </div>
+
+          <div class="d-flex justify-content-around align-items-center mb-4">
+            <!-- Checkbox -->
+            <!-- <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+              <label class="form-check-label" for="form1Example3"> Remember me </label>
+            </div> -->
+           
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit"  class="btn btn-primary"> Login</button>
+
+         
+          <!-- {{decodedToken}} -->
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <div class="wrapper fadeInDown">
+    <div id="formContent"> -->
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <!-- <div class="fadeIn first">
+        <img src="" id="icon" alt="User Icon" />
+      </div> -->
+  
+      <!-- Login Form -->
+      <!-- <form #regForm="ngForm" (ngSubmit)="Register(regForm)">
+        <input type="text" id="login" class="fadeIn second" name="txtName" placeholder="login">
+        <input type="text" id="password" class="fadeIn third" name="passname" placeholder="password">
+        <button type="submit" [disabled]='regForm.invalid' (click)="Login(regForm) "> Login </button>
+      
+      </form> -->
+  
+      <!-- Remind Passowrd -->
+      <!-- <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
+    </div>
+  </div> -->
+
+

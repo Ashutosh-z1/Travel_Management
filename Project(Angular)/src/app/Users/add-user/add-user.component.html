@@ -1,0 +1,140 @@
+
+ 
+    <table class="table table-striped table-hover">
+
+        <tbody>
+
+            <tr>
+
+                <td>
+                   
+                    <form #regForm="ngForm" (ngSubmit)="Register(regForm)">
+                        <div>
+                            
+                            <label for="firstName"> Enter First Name </label>
+                            <input type="text" name="firstName" ngModel required >
+                            
+                            
+                            
+                        </div>
+                        
+                        <div>
+                            <label for="middleName"> Enter Middle Name </label>
+                            <input type="text" name="middleName" ngModel  
+                            required >
+                            
+                        </div>
+                        
+                        <div>
+                            <label for="lastName"> Enter Last Name </label>
+                            <input type="text" name="lastName" ngModel  
+                            required >
+                            
+                        
+                        
+                        </div>
+                        <div>
+                            <label for="email"> Enter Email  </label>
+                            <input type="text" name="email" ngModel  
+                            required >
+                            
+                        </div>
+                        
+                        <div>
+                            <label for="password"> Enter Password  </label>
+                            <input type="password" name="password" ngModel  
+                            required >
+                            
+                        
+                        </div>
+                        <div>
+                            <label for="contactNumber"> Enter contactNumber  </label>
+                            <input type="text" name="contactNumber" ngModel  
+                            required >
+                            
+                        
+                        </div>
+
+
+                                                
+                            <div class="dropdown">
+                                <label for="roleId">Select Role</label>
+                                <select #roleIdChange (change)="update($event)">
+                                    <option value="default">Roles</option>
+                                    <option *ngFor="let role of roles" [value]=role.id>
+                                        {{role.value}}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="dropdown">
+                                <label for="departmentId">Select Department</label>
+                                <select #roleDeptChange (change)="updateDeaprtment($event)">
+                                    <option value="default">Department</option>
+                                    <option *ngFor="let _department of department" [value]=_department.id>
+                                        {{_department.value}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="dropdown">
+                                <label for="managerId">Select Manager</label>
+                                <select #manager (change)="updateManger($event)">
+                                    <option value="default">Manager</option>
+                                    <option *ngFor="let _manager of managers" [value]=_manager.id>
+                                        {{_manager.email}}
+                                    </option>
+                                </select>
+                            </div>
+                        
+                            <div>
+                                <label for="createdBy">Enter Created By</label>
+                                <input type="text" name="createdBy" ngModel required>
+                            </div>
+                        <!-- <div>
+                            <label for="roleId"> Enter roleId  </label>
+                            <input type="number" name="roleId" ngModel  
+                            required >
+                            
+                        
+                        </div>
+                        <div>
+                            <label for="departmentId"> Enter departmentId  </label>
+                            <input type="number" name="departmentId" ngModel  
+                            required >
+                            
+                        
+                        </div>
+                        <div>
+                            <label for="managerId"> Enter managerId  </label>
+                            <input type="number" name="managerId" ngModel  
+                            required >
+                            
+                        
+                        </div> -->
+                        
+                        <div>
+                            <label for="createdDate"> Enter createdDate  </label>
+                            <input type="date" name="createdDate" ngModel  
+                            required >
+                            
+                        
+                        </div>
+                    
+                    
+                    
+                        <button type="submit" > Register </button> 
+                        <!-- <button type="submit" [disabled]='regForm.invalid'> Register </button> -->
+                    </form>
+                </td>
+
+            </tr>
+
+
+        </tbody>
+
+    </table>
+
+
+
+                    
+    

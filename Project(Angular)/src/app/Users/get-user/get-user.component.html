@@ -1,0 +1,161 @@
+<div class="search-bar">
+    <input type="text" [(ngModel)]="searchText" placeholder="Search by User First Name" />
+</div>
+
+            <table class="table table-striped table-hover">
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>FirstName</th>
+                        <th>MiddleName</th>
+                        <th>LastName</th>
+                        <th>password</th>
+                        <th>ContactNumber</th>
+                        <th>Role</th>
+                        <th>Department</th>
+                        <th>Manager</th>
+                        <th>Action</th>
+                        
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr *ngFor="let _user of Users1">
+                        <td>{{_user.id}}</td>
+                        <td>{{_user.email}}</td>
+                        <td>{{_user.firstName}}</td>
+                        <td>{{_user.middleName}}</td>
+                        <td>{{_user.lastName}}</td>
+                        <td>{{_user.password}}</td>
+                        <td>{{_user.contactNumber}}</td>
+                        <ng-container *ngFor="let _role of roles">
+                            <td *ngIf="_role.id==_user.roleId">
+                              {{ _role.value }}
+                              
+                            </td>
+                        </ng-container> 
+                        
+                        <!-- <td>{{_user.departmentId}}</td> -->
+                        <!-- <div *ngFor="let dept of department">
+                            <div *ngIf="dept.id === _user.id">
+                              <td>{{ dept.value }}</td>
+                            </div>
+                        </div>  -->
+                        
+                        <ng-container *ngIf="_user.departmentId != null; else noDep ">
+                            <ng-container *ngFor="let dept of department">
+                                <td *ngIf="dept.id==_user.departmentId">
+                                {{ dept.value }}
+                              
+                                </td>   
+                             </ng-container> 
+                        </ng-container>
+
+                        <ng-template #noDep>
+                            <td>No Department</td>
+                        </ng-template>
+
+                        <!--MAnager  -->
+            
+                        <ng-container *ngIf="_user.managerId != null; else noManager ">
+                            <ng-container *ngFor="let mngr of managers">
+                                <td *ngIf="mngr.id==_user.managerId">
+                                  {{ mngr.email }}
+                                </td>
+                            </ng-container> 
+                        </ng-container>
+                        <ng-template #noManager>
+                            <td>No Manager</td>
+                        </ng-template>
+                        
+
+                        <td>
+
+                            <a  type="button" (click)="openEditForm(_user)"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+
+                            <a  routerLink="" (click)="deleteUser(_user.id)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>  
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+            <!-- editing  -->
+
+
+            
+            
+<div *ngIf="showEditForm" class="edit-form">
+    <h2>Edit User</h2>
+    <form (ngSubmit)="updateUser()" class="form">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" [(ngModel)]="selectedUser.firstName" required class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="middleName">Middle Name</label>
+            <input type="text" name="middleName" [(ngModel)]="selectedUser.middleName" required class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" [(ngModel)]="selectedUser.lastName" required class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" name="password" [(ngModel)]="selectedUser.password" required class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="contactNumber">Contact Number</label>
+            <input type="text" name="contactNumber" [(ngModel)]="selectedUser.contactNumber" required class="form-control">
+        </div>
+        <div class="form-group dropdown">
+            <label for="roleId">Role </label>
+            <select #roleIdChange (change)="update($event)" class="form-control">
+                <option value="default">Roles</option>
+                <option *ngFor="let role of roles" [value]=role.id>
+                    {{role.value}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group dropdown">
+            <label for="departmentId">Department </label>
+            <select #roleDeptChange (change)="updateDeaprtment($event)" class="form-control">
+                <option value="default">Department</option>
+                <option *ngFor="let _department of department" [value]=_department.id>
+                    {{_department.value}}
+                </option>
+            </select>
+        </div>
+        <!-- <div class="form-group">
+            <label for="managerId">Manager </label>
+            <input type="number" name="managerId" [(ngModel)]="selectedUser.managerId" required class="form-control">
+        </div> -->
+        <div class="dropdown">
+            <label for="managerId">Manager</label> 
+            <select #manager (change)="updateManger($event)">
+                <option value="default">Manager</option>
+                <option *ngFor="let _manager of managers" [value]=_manager.id>
+                    {{_manager.email}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="modifiedBy">Modified By</label>
+            <input type="text" name="modifiedBy" [(ngModel)]="selectedUser.modifiedBy" required class="form-control">
+        </div>
+        <!-- <div class="form-group">
+            <label for="isActive">Is Active</label>
+            <input type="text" name="isActive" [(ngModel)]="selectedUser.isActive" required class="form-control">
+        </div> -->
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>

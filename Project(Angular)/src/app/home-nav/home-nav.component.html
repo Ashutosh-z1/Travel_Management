@@ -1,0 +1,77 @@
+
+
+
+
+<!-- <a routerLink="/login"> login</a> -->
+
+<!-- <div *ngIf="loggedIn;then Login; else NoLogin"></div>
+<ng-template #Login>
+    
+    <a routerLink="/dashboard">Admin</a> <br>
+    <a routerLink="/home-nav">Home</a><br>
+    <a routerLink="/UserRoleMapping">UserRoleMapping</a><br>
+ 
+</ng-template>   -->
+
+<!-- <ng-template #NoLogin>
+    <a routerLink="/login"></a>
+
+</ng-template> -->
+
+<!-- <div class="navbar">
+    <ul>
+      <li *ngIf="loggedIn"><a routerLink="/dashboard">Login</a></li>
+      <li *ngIf="!loggedIn" class="logout"><a routerLink="/login">Logout</a></li>
+    </ul>
+  </div> -->
+  
+  
+  <!-- <router-outlet></router-outlet> -->
+
+ <h1> Dashboard </h1>
+ 
+  
+  <div class="container-xl">
+    
+      <div class="table-responsive">
+        <div *ngIf="successMessage" class="success-message">
+            {{successMessage}}
+          </div>
+          <div class="table-wrapper">
+            
+              <div class="table-title">
+  
+                  <div class="row">
+  
+                      <div class="col-sm-6">
+  
+                          <h2>Welcome <b>{{Name}}</b></h2>
+  
+                        </div>
+
+                            <div class="col-sm-6">
+                                <button type="button" (click)="logout()" class="btn btn-danger">LogOut</button>         
+
+                                <!-- {{Rolename}} -->
+                                <div *NgIf="Rolename == 'Manager'; then manager ;else employee"></div>
+                                <a routerLink="./getuser" class="btn btn-success"  data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Get User List</span></a>
+
+                            <a routerLink="./adduser" class="btn btn-success"  data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a> 
+                            </div>
+                        
+                            
+
+                        </div>  
+                      
+                    </div>
+
+                  <router-outlet></router-outlet>  
+                 <!-- <app-get-user></app-get-user> -->
+
+
+                </div>
+        </div>
+
+  </div> 
+
+  

@@ -1,0 +1,60 @@
+/* label{
+    margin: 10px;
+    padding: 10px;
+}
+
+button{
+    margin: 10px;
+    padding: 10px;
+} */
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+.heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-top: 40px;
+}
+
+  
+
+.success-message {
+  background-color: #dff0d8;
+  color: #b3575b;
+  padding: 10px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.success-message::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+height: 3px;
+width: 100%;
+background-color: #570000;
+animation: timer 3s linear;
+transition: width 0.3s;
+}
+
+@keyframes timer {
+0% {
+  width: 100%;
+}
+100% {
+  width: 0%;
+}
+}
+

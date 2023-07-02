@@ -1,0 +1,231 @@
+
+<!-- 
+<body>
+	<nav>
+		<div class="heading">User</div>
+		<span class="sideMenuButton"
+			onclick="openNavbar()">
+			☰
+		</span>
+
+		<div class="navbar">
+			<ul> -->
+				<!-- <li><a href="#Home">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Sign Up</a></li>
+               -->
+                     <!-- <button type="button" (click)="logout()" class="btn btn-danger">LogOut</button> 
+                     <button type="button"  class="btn btn-primary">Request</button>         
+                
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Side navigation bar for
+		responsive website -->
+	<!-- <div class="sideNavigationBar"
+		id="sideNavigationBar">
+		<a href="#" class="closeButton"
+			onclick="closeNavbar()">
+			
+		</a>
+		<a href="#">Home</a>
+		<a href="#">About</a>
+		<a href="#">Sign Up</a>
+	</div> -->
+
+	<!-- Content -->
+<!--<div class="line" id="Home">
+		<div class="side1">
+			<h2>User Detail</h2>
+			
+		</div>
+		<div class="side2">
+			<img src=
+"https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Picture.png"
+				width="300">
+		</div>
+	</div>
+
+	<section class="about" id="My Projects">
+		<div class="content">
+			<div class="title">
+				<span>Courses</span>
+			</div>
+			<div class="boxes">
+				<div class="box">
+					<div class="topic">
+						<a href="" target="_blank">
+							DSA
+						</a>
+					</div>
+					<p>
+						The term DSA stands for Data
+						Structures and Algorithms. As
+						the name itself suggests, it
+						is a combination of two
+						separate yet interrelated
+						topics.
+					</p>
+				</div>
+				<div class="box">
+
+					<div class="topic">
+						<a href="" target="_blank">
+							HTML
+						</a>
+					</div>
+					<p>
+						HTML stands for HyperText
+						Markup Language. It is used
+						to design web pages using
+						the markup language.
+					</p>
+				</div>
+
+				<div class="box">
+					<div class="topic">
+						<a href="" target="_blank">
+							Javascript
+						</a>
+					</div>
+					<p>
+						JavaScript (JS) is the most
+						popular lightweight, interpreted
+						compiled programming language.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="contact" id="contact">
+		<div class="content">
+			<div class="title"><span>Sign Up</span></div>
+			<div class="contactMenu">
+				<div class="input1">
+					<div class="label1">Your Name</div>
+					<div class="input2">
+						<input type="text"
+							placeholder="Enter your Name here">
+					</div>
+					<div class="label1">
+						<label>Your Email</label>
+					</div>
+					<div class="input2">
+						<input type="text"
+							placeholder="Enter your Email here">
+					</div>
+					<div class="label1">
+						<label>Your Password</label>
+					</div>
+					<div class="input2">
+						<input type="text"
+							placeholder="Enter your Password here">
+					</div>
+					<div class="button">
+						<button>Sign Up</button>
+					</div>
+				</div>
+				<div class="input3">
+					<div class="rightside1">
+						<div class="title1">
+							<span>
+								Contact Us
+							</span>
+						</div>
+						<div class="content1">
+							A-143, 9th Floor, Sovereign
+							Corporate Tower, Sector-136,
+							Noida, Uttar Pradesh - 201305
+						</div>
+						<div class="title1">
+							<span>More Information</span>
+						</div>
+						<div class="content1">
+							Greetings to all the Geeks out there!
+							We welcome you to the platform where we
+							consistently strive to offer the best
+							of education. This platform has been
+							designed for every geek wishing to
+							expand their knowledge, share their
+							knowledge and is ready to grab their
+							dream job. We have millions of articles,
+							live as well as online courses, thousands
+							of tutorials and much more just for the
+							geek inside you.Thank you for choosing
+							and supporting us!
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
+	<!-- Footer section -->
+	<!-- <footer>
+		<div class="footer">
+			<span>
+				Created By
+				<a href="https://www.geeksforgeeks.org/"
+					target="_blank">
+					GeeksforGeeks
+				</a>
+			</span>
+		</div>
+	</footer>
+	 -->
+
+
+    <h1> Dashbord </h1>
+    <div class="container-xl">
+    
+        <div class="table-responsive">
+			<div *ngIf="successMessage" class="success-message">
+				{{successMessage}}
+			  </div>
+            <div class="table-wrapper">
+    
+                <div class="table-title">
+    
+                    <div class="row">
+    
+                        <div class="col-sm-6">
+    
+                            <h2>welcome <b>{{Name}}</b></h2>
+    
+                          </div>
+  
+                              <div class="col-sm-6">
+								<button type="button" (click)="logout()" class="btn btn-danger">LogOut</button>  
+								<div *ngIf="RoleName === 'Manager'; then manager else nomanager"></div>
+
+									<ng-template #manager>
+										<a routerLink="./getrequest" class="btn btn-success"  data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Get Requests</span></a> 
+										<a routerLink="./addrequest" class="btn btn-success"  data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>New Requests</span></a>
+									</ng-template>
+
+									<ng-template #nomanager>
+
+										<a routerLink="./getrequest" class="btn btn-success"  data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Get Requests</span></a> 
+										
+									</ng-template>
+
+								
+                              </div>
+                          
+                              
+  
+  
+                          </div>  
+                        
+                      </div>
+                      <router-outlet></router-outlet>  
+                   <!-- <app-get-user></app-get-user> -->
+  
+  
+                  </div>
+          </div>
+  
+    </div> 
+  
+    
